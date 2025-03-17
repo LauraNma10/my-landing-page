@@ -1,0 +1,224 @@
+body {
+    background: linear-gradient(90deg, #fff000, #ff5722, #00ff00);
+    font-family: Arial, sans-serif;
+    background-size: 300% 100%;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    max-width: 100%;
+    animation: gradientAnimation 10s linear infinite;
+  }
+  @keyframes gradientAnimation {
+    0% { background-position: 0% 50%; }
+    100% { background-position: 100% 50%; }
+  }
+  
+  /* Navbar Styles with Slide-In Animation */
+  .navbar {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 10px 20px;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    animation: navbarSlideIn 1s ease-out forwards;
+  }
+  @keyframes navbarSlideIn {
+    from {
+      opacity: 0;
+      transform: translateY(-100%);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  .navbar-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .navbar-logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: #ff5722;
+  }
+  .navbar-menu {
+    display: flex;
+    list-style: none;
+    margin: 0;
+  }
+  .navbar-menu li {
+    margin-right: 30px;
+  }
+  .navbar-menu li a {
+    text-decoration: none;
+    color: #333;
+    font-size: 16px;
+    transition: color 0.3s ease, text-decoration 0.3s ease;
+  }
+  .navbar-menu li a:hover {
+    color: #ff5722;
+    text-decoration: underline;
+  }
+  .navbar-toggle {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+  }
+  .navbar-toggle .bar {
+    height: 3px;
+    width: 25px;
+    background-color: #333;
+    margin: 4px 0;
+    transition: all 0.3s;
+  }
+  @media (max-width: 768px) {
+    .navbar-menu {
+      position: absolute;
+      top: 60px;
+      left: 0;
+      right: 0;
+      background: rgba(255, 255, 255, 0.95);
+      flex-direction: column;
+      align-items: center;
+      display: none;
+    }
+    .navbar-menu.active {
+      display: flex;
+    }
+    .navbar-menu li {
+      margin: 10px 0;
+    }
+    .navbar-toggle {
+      display: flex;
+    }
+  }
+  
+  header {
+    padding-top: 80px; 
+    opacity: 0; 
+    transform: translateY(-50px);
+    animation: headerSlideIn 1s ease-out forwards;
+  }
+  @keyframes headerSlideIn {
+    from {
+      opacity: 0;
+      transform: translateY(-50px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .cta-button {
+    background-color: inherit;
+    background-size: 200% 200%;
+    color: white;
+    border: 1px solid white;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    animation: gradientAnimation 3s ease infinite;
+  }
+  @keyframes gradientAnimation {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+  .cta-button:hover {
+    transform: scale(1.1);
+  }
+  .hero {
+    opacity: 0;
+    transform: translateX(-100%);
+    animation: heroSlideIn 1.5s ease-out forwards;
+    animation-delay: 0.5s;
+    padding: 40px 20px;
+  }
+  @keyframes heroSlideIn {
+    from {
+      opacity: 0;
+      transform: translateX(-100%);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  
+  .product-card {
+    display: inline-block;
+    background: white;
+    padding: 15px;
+    margin: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
+    transform: translateY(50px);
+    opacity: 0;
+    animation: slideIn 1s ease-out forwards;
+  }
+  .hidden {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  .show {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  }
+  
+  /* Staggered animation delay */
+  .product-card:nth-child(1) { animation-delay: 0.3s; }
+  .product-card:nth-child(2) { animation-delay: 0.6s; }
+  .product-card:nth-child(3) { animation-delay: 0.9s; }
+  .product-card:nth-child(4) { animation-delay: 10s; }
+  .product-card:nth-child(5) { animation-delay: 15s; }
+  .product-card:nth-child(6) { animation-delay: 20s; }
+  
+  @keyframes slideIn {
+    from { transform: translateY(50px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+  }
+  
+  /* Image hover effect */
+  .image-container {
+    position: relative;
+    width: 300px;
+    height: 300px;
+    overflow: hidden;
+    margin: 0 auto;
+  }
+  .image-container img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: opacity 0.5s ease;
+  }
+  .default-img {
+    opacity: 1;
+  }
+  .hover-img {
+    opacity: 0;
+  }
+  .product-card:hover .default-img {
+    opacity: 0;
+  }
+  .product-card:hover .hover-img {
+    opacity: 1;
+  }
+  
+  /* Responsive Styles for other elements */
+  @media (max-width: 768px) {
+    header { margin-top: 20px; }
+    .hero { margin-top: 60px; }
+    .products { flex-direction: column; align-items: center; }
+    .product-card { width: 90%; margin: 10px auto; }
+  }
